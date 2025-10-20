@@ -3978,6 +3978,7 @@ img {
 }
 .modal-head {
   padding: 12px 20px 10px;
+  padding: 8px 20px 6px;
   background: var(--white);
   position: sticky;
   top: 0;
@@ -4040,6 +4041,7 @@ img {
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   align-self: center;
+  align-self: flex-start;
 }
 .modal-foot {
   padding: 20px 40px 40px;
@@ -4267,6 +4269,7 @@ img {
   }
   .modal-head {
     padding: 10px 12px 8px;
+    padding: 6px 12px 4px;
     position: relative;
     top: auto;
     bottom: auto;
@@ -4274,6 +4277,7 @@ img {
   }
   .modal-head--success {
     padding: 12px 12px 10px;
+    padding: 10px 12px 6px;
   }
   .modal-foot {
     padding: 12px 12px 21px;
