@@ -11,35 +11,23 @@ $successID = "success-".$webFormName;
 $popupID = "popup-".$webFormName;
 ?>
 <div class="modal" id="<?php echo $popupID ?>" style="display: none;">
-	<?php
-	$FILE_SIZE_MESSAGE = Loc::getMessage(
-		"WEBFORM_FILE_JS_TEXT",
-		array(
-			"#file_size_label#" => $arResult["QUESTIONS"]["FILE"]["TEXT_SIZE"],
-			"#file_ext_label#" => $arResult["QUESTIONS"]["FILE"]["TEXT_EXT"]
-		)
-	);
-	?>
-	<script>
-		var MESS_WEBFORM_FILE_TEXT = '<?= $FILE_SIZE_MESSAGE ?>';
-	</script>
-	<div class="modal-content">
+        <div class="modal-content">
 		<div class="form modal-form">
 			<?php echo $arResult["FORM_HEADER"] ?>
 				<?php echo $arResult["QUESTIONS"]["URL"]["HTML_CODE"] ?>
-				<div class="modal__inner modal__inner--m-100">
-					<div class="modal-head">
-						<div class="modal-title h4"><?php echo Loc::getMessage( "WEBFORM_APPOINTMENT_TITLE" ) ?></div>
-
-						<input type="hidden" name="web_form_submit" value="Y">
-						<div class="error-msg"></div>
-
-						<button class="modal-close icon" type="button" data-fancybox-close>
-							<svg class="svg-sprite-icon icon-close">
-								<use xlink:href="<?php echo SITE_TEMPLATE_PATH ?>/static/images/svg/symbol/sprite.svg#close"></use>
-							</svg>
-						</button>
-					</div>
+                                <div class="modal__inner modal__inner--m-100">
+                                        <input type="hidden" name="web_form_submit" value="Y">
+                                        <div class="modal-head">
+                                                <div class="modal-head__bar">
+                                                        <div class="modal-title h4"><?php echo Loc::getMessage( "WEBFORM_APPOINTMENT_TITLE" ) ?></div>
+                                                        <button class="modal-close icon" type="button" data-fancybox-close>
+                                                                <svg class="svg-sprite-icon icon-close">
+                                                                        <use xlink:href="<?php echo SITE_TEMPLATE_PATH ?>/static/images/svg/symbol/sprite.svg#close"></use>
+                                                                </svg>
+                                                        </button>
+                                                </div>
+                                                <div class="error-msg"></div>
+                                        </div>
 					<div class="modal-body modal-body--visit">
 						<div class="modal-body__inner">
 							<div class="modal-form__fields row">
@@ -269,76 +257,8 @@ $popupID = "popup-".$webFormName;
 										</div>
 									</div>
 								</div>
-								<div class="modal-form__fields-item modal-form__fields-item--tablet">
-									<div class="form-file-wrapper">
-										<label class="form-file" for="<?php echo $arResult["QUESTIONS"]["FILE"]["INPUT_FILE_NAME"] ?>">
-											<span class="form-file__content border">
-												<span class="form-file__title d-flex btn-sm">
-													<span class="form-file__title-icon icon">
-														<svg class="svg-sprite-icon icon-file-2">
-															<use xlink:href="<?php echo SITE_TEMPLATE_PATH ?>/static/images/svg/symbol/sprite.svg#file-2"></use>
-														</svg>
-													</span>
-													<span class="form-file__title-txt"><?php echo $arResult["QUESTIONS"]["FILE"]["CAPTION"] ?></span>
-												</span>
-												<?php if( ! empty( $arResult["QUESTIONS"]["FILE"]["TEXT_SIZE"] ) || ! empty( $arResult["QUESTIONS"]["FILE"]["TEXT_EXT"] ) ) { ?>
-													<span class="form-file__txt text-small grey-color">
-														<?php
-														echo Loc::getMessage(
-															"WEBFORM_FILE_TEXT",
-															array(
-																"#file_size_label#" => $arResult["QUESTIONS"]["FILE"]["TEXT_SIZE"],
-																"#file_ext_label#" => $arResult["QUESTIONS"]["FILE"]["TEXT_EXT"]
-															)
-														);
-														?>
-													</span>
-												<?php } ?>
-											</span>
-										</label>
-										<div class="form-file-load grey-bg">
-											<div class="form-file-load__title d-flex">
-												<div class="form-file-load__txt btn-sm"><?php echo Loc::getMessage( "WEBFORM_FILE_LOADING" ) ?></div>
-												<button class="form-file-load__cancel icon"
-														type="button"
-														tabindex="-1"
-														data-orig-tabindex="-1">
-													<svg class="svg-sprite-icon icon-close">
-														<use xlink:href="<?php echo SITE_TEMPLATE_PATH ?>/static/images/svg/symbol/sprite.svg#close"></use>
-													</svg>
-												</button>
-											</div>
-											<div class="form-file-load__progress"><span style="width: 0%;"></span></div>
-										</div>
-										<div class="form-file-selected grey-bg">
-											<div class="form-file-selected__inner d-flex">
-												<div class="form-file-selected__left">
-													<div class="form-file-selected__name d-flex btn-sm">
-														<div class="form-file-selected__name-icon icon">
-															<svg class="svg-sprite-icon icon-document">
-																<use xlink:href="<?php echo SITE_TEMPLATE_PATH ?>/static/images/svg/symbol/sprite.svg#document"></use>
-															</svg>
-														</div>
-														<div class="form-file-selected__name-txt"></div>
-													</div>
-													<div class="form-file-selected__size text-small grey-color"></div>
-												</div>
-												<div class="form-file-selected__right">
-													<button class="form-file-load__remove icon"
-															type="button"
-															tabindex="-1"
-															data-orig-tabindex="-1">
-														<svg class="svg-sprite-icon icon-close">
-															<use xlink:href="<?php echo SITE_TEMPLATE_PATH ?>/static/images/svg/symbol/sprite.svg#close"></use>
-														</svg>
-													</button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="modal-form__fields-item modal-form__fields-item--50">
-									<div class="form-item" data-validate-box="0">
+                                                                <div class="modal-form__fields-item modal-form__fields-item--50 modal-form__fields-item--captcha modal-form__fields-item--captcha-input">
+                                                                        <div class="form-item" data-validate-box="0">
 										<div class="form-item__group border">
 											<div class="form-item__label">
 												<?php echo Loc::getMessage( "WEBFORM_CAPTCHA_TEXT" ) ?>
@@ -349,105 +269,32 @@ $popupID = "popup-".$webFormName;
 										</div>
 									</div>
 								</div>
-								<div class="modal-form__fields-item modal-form__fields-item--50">
-									<div class="form-item">
-										<?php echo $arResult["CAPTCHA_IMAGE"] ?>
-									</div>
-								</div>
+                                                                <div class="modal-form__fields-item modal-form__fields-item--50 modal-form__fields-item--captcha modal-form__fields-item--captcha-image">
+                                                                        <div class="form-item">
+                                                                                <?php echo $arResult["CAPTCHA_IMAGE"] ?>
+                                                                        </div>
+                                                                </div>
 							</div>
 						</div>
 					</div>
-					<div class="modal-foot">
-						<div class="modal-form__foot">
-							<div class="modal-form__foot-group d-flex">
-								<div class="modal-form__foot-left">
-									<button class="modal-form__btn btn btn-gradient" type="submit">
-										<?php echo $arResult["arForm"]["BUTTON"] ?>
-									</button>
-								</div>
-								<div class="modal-form__foot-right">
-									<div class="form-file-wrapper">
-										<label class="form-file" for="<?php echo $arResult["QUESTIONS"]["FILE"]["INPUT_FILE_NAME"] ?>">
-											<span class="form-file__content border">
-												<span class="form-file__title d-flex btn-sm">
-													<span class="form-file__title-icon icon">
-														<svg class="svg-sprite-icon icon-file-2">
-															<use xlink:href="<?php echo SITE_TEMPLATE_PATH ?>/static/images/svg/symbol/sprite.svg#file-2"></use>
-														</svg>
-													</span>
-													<span class="form-file__title-txt"><?php echo $arResult["QUESTIONS"]["FILE"]["CAPTION"] ?></span>
-												</span>
-												<?php if( ! empty( $arResult["QUESTIONS"]["FILE"]["TEXT_SIZE"] ) || ! empty( $arResult["QUESTIONS"]["FILE"]["TEXT_EXT"] ) ) { ?>
-													<span class="form-file__txt text-small grey-color">
-														<?php
-														echo Loc::getMessage(
-															"WEBFORM_FILE_TEXT",
-															array(
-																"#file_size_label#" => $arResult["QUESTIONS"]["FILE"]["TEXT_SIZE"],
-																"#file_ext_label#" => $arResult["QUESTIONS"]["FILE"]["TEXT_EXT"]
-															)
-														);
-														?>
-													</span>
-												<?php } ?>
-											</span>
-										</label>
-										<div class="form-file-load grey-bg">
-											<div class="form-file-load__title d-flex">
-												<div class="form-file-load__txt btn-sm"><?php echo Loc::getMessage( "WEBFORM_FILE_LOADING" ) ?></div>
-												<button class="form-file-load__cancel icon"
-														type="button"
-														tabindex="-1"
-														data-orig-tabindex="-1">
-													<svg class="svg-sprite-icon icon-close">
-														<use xlink:href="<?php echo SITE_TEMPLATE_PATH ?>/static/images/svg/symbol/sprite.svg#close"></use>
-													</svg>
-												</button>
-											</div>
-											<div class="form-file-load__progress"><span style="width: 0%;"></span></div>
-										</div>
-										<div class="form-file-selected grey-bg">
-											<div class="form-file-selected__inner d-flex">
-												<div class="form-file-selected__left">
-													<div class="form-file-selected__name d-flex btn-sm">
-														<div class="form-file-selected__name-icon icon">
-															<svg class="svg-sprite-icon icon-document">
-																<use xlink:href="<?php echo SITE_TEMPLATE_PATH ?>/static/images/svg/symbol/sprite.svg#document"></use>
-															</svg>
-														</div>
-														<div class="form-file-selected__name-txt"></div>
-													</div>
-													<div class="form-file-selected__size text-small grey-color"></div>
-												</div>
-												<div class="form-file-selected__right">
-													<button class="form-file-load__remove icon"
-															type="button"
-															tabindex="-1"
-															data-orig-tabindex="-1">
-														<svg class="svg-sprite-icon icon-close">
-															<use xlink:href="<?php echo SITE_TEMPLATE_PATH ?>/static/images/svg/symbol/sprite.svg#close"></use>
-														</svg>
-													</button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="modal-form__foot-txt">
-								<div class="modal-form__txt"><?php echo Loc::getMessage( "WEBFORM_ACCEPTANCE_START_TEXT" ) ?>
-									<a class="gradient-link text-gradient-2"
-									   href="<?php echo Loc::getMessage( "WEBFORM_ACCEPTANCE_LINK_VALUE" ) ?>">
-										<?php echo Loc::getMessage( "WEBFORM_ACCEPTANCE_LINK_LABEL" ) ?>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div style="display: none">
-						<?php echo $arResult["QUESTIONS"]["FILE"]["HTML_CODE"] ?>
-					</div>
-				</div>
+                                        <div class="modal-foot">
+                                                <div class="modal-form__foot">
+                                                        <div class="modal-form__foot-left">
+                                                                <button class="modal-form__btn btn btn-gradient" type="submit">
+                                                                        <?php echo $arResult["arForm"]["BUTTON"] ?>
+                                                                </button>
+                                                        </div>
+                                                        <div class="modal-form__foot-txt">
+                                                                <div class="modal-form__txt"><?php echo Loc::getMessage( "WEBFORM_ACCEPTANCE_START_TEXT" ) ?>
+                                                                        <a class="gradient-link text-gradient-2"
+                                                                           href="<?php echo Loc::getMessage( "WEBFORM_ACCEPTANCE_LINK_VALUE" ) ?>">
+                                                                                <?php echo Loc::getMessage( "WEBFORM_ACCEPTANCE_LINK_LABEL" ) ?>
+                                                                        </a>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
 			<?php echo $arResult["FORM_FOOTER"] ?>
 		</div>
 	</div>
@@ -465,14 +312,16 @@ $popupID = "popup-".$webFormName;
 		<div class="modal-content modal-content--m-rounded">
 			<div class="modal-success">
 				<div class="modal__inner">
-					<div class="modal-head modal-head--success">
-						<div class="modal-title h4"><?php echo Loc::getMessage( "WEBFORM_APPOINTMENT_TITLE" ) ?></div>
-						<button class="modal-close icon modal-close--m-sm" type="button" data-fancybox-close>
-							<svg class="svg-sprite-icon icon-close">
-								<use xlink:href="<?php echo SITE_TEMPLATE_PATH ?>/static/images/svg/symbol/sprite.svg#close"></use>
-							</svg>
-						</button>
-					</div>
+                                        <div class="modal-head modal-head--success">
+                                                <div class="modal-head__bar">
+                                                        <div class="modal-title h4"><?php echo Loc::getMessage( "WEBFORM_APPOINTMENT_TITLE" ) ?></div>
+                                                        <button class="modal-close icon modal-close--m-sm" type="button" data-fancybox-close>
+                                                                <svg class="svg-sprite-icon icon-close">
+                                                                        <use xlink:href="<?php echo SITE_TEMPLATE_PATH ?>/static/images/svg/symbol/sprite.svg#close"></use>
+                                                                </svg>
+                                                        </button>
+                                                </div>
+                                        </div>
 					<div class="modal-body modal-body--success">
 						<div class="modal-txt text-normal grey-color">
 							<?php echo Loc::getMessage( "WEBFORM_SUCCESS_TEXT" ) ?>
